@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALA FAST FOOD | Mazali taomlar</title>
+    <link rel="stylesheet" href="./AWT.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <a href="#" class="logo">YALA<span>.</span></a>
+
+    <nav>
+        <a href="#home">Bosh sahifa</a>
+        <a href="#menu">Menyu</a>
+        <a href="#aksiya">Aksiyalar</a>
+        <a href="#about">Biz haqimizda</a>
+        <a href="#contact">Aloqa</a>
+    </nav>
+
+    <div class="header-actions">
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Savat <span id="cart-count">0</span>
+        </button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="tag">🔥 YALA FAST FOOD</span>
+        <h1>Eng mazali taomlar <span>bir joyda!</span></h1>
+        <p>
+            Yangi, issiq va mazali fast foodlar.
+            Sevimli taomingizni tanlang va hoziroq buyurtma bering!
+        </p>
+        <a href="#menu" class="primary-btn">Menyuni ko'rish →</a>
+
+        <div class="hero-info">
+            <div><strong>100%</strong><small>Yangi mahsulot</small></div>
+            <div><strong>30 min</strong><small>Tez yetkazish</small></div>
+            <div><strong>24/7</strong><small>Xizmat</small></div>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900" alt="YALA burger">
+        <div class="discount">-20% <small>Chegirma</small></div>
+    </div>
+</section>
+
+<!-- QIDIRUV -->
+<section class="search-section">
+    <div>
+        <h2>O'zingiz yoqtirgan taomni toping!</h2>
+        <p>Menyudan istalgan mahsulotni qidiring</p>
+    </div>
+
+    <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="searchInput"
+        placeholder="Burger, lavash, pizza qidirish...">
+        <button onclick="searchFood()">Qidirish</button>
+    </div>
+</section>
+
+<!-- KATEGORIYALAR -->
+<section class="categories" id="menu">
+    <h2>Bizning <span>menyu</span></h2>
+    <p class="section-desc">O'zingizga yoqqan taomni tanlang</p>
+
+    <div class="category-list">
+        <button class="category-btn active" onclick="filterFood('all',this)">🍽 Barchasi</button>
+        <button class="category-btn" onclick="filterFood('burger',this)">🍔 Burger</button>
+        <button class="category-btn" onclick="filterFood('lavash',this)">🌯 Lavash</button>
+        <button class="category-btn" onclick="filterFood('pizza',this)">🍕 Pizza</button>
+        <button class="category-btn" onclick="filterFood('hotdog',this)">🌭 Hot-dog</button>
+        <button class="category-btn" onclick="filterFood('donar',this)">🥙 Donar</button>
+        <button class="category-btn" onclick="filterFood('fri',this)">🍟 Fri</button>
+        <button class="category-btn" onclick="filterFood('drink',this)">🥤 Ichimlik</button>
+    </div>
+</section>
+
+<!-- MAHSULOTLAR -->
+<section class="products-section">
+    <div class="products-heading">
+        <h2>Bizning taomlar</h2>
+        <span>Eng mazali tanlovlar ❤️</span>
+    </div>
+
+    <div class="products" id="products">
+
+        <div class="product-card" data-category="burger" data-name="Cheese Burger">
+            <div class="product-image">
+                <span class="product-label">TOP</span>
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Cheese Burger">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🍔 BURGER</span>
+                <h3>Cheese Burger</h3>
+                <p>Mol go'shti, pishloq, pomidor va sous</p>
+                <div class="product-bottom">
+                    <strong>35 000 so'm</strong>
+                    <button onclick="addToCart('Cheese Burger',35000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="burger" data-name="Double Burger">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433a?w=500" alt="Double Burger">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🍔 BURGER</span>
+                <h3>Double Burger</h3>
+                <p>Ikki qavat go'sht va pishloq</p>
+                <div class="product-bottom">
+                    <strong>45 000 so'm</strong>
+                    <button onclick="addToCart('Double Burger',45000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="lavash" data-name="Mol go'shtli Lavash">
+            <div class="product-image">
+                <span class="product-label hot">HIT</span>
+                <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=500" alt="Lavash">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🌯 LAVASH</span>
+                <h3>Mol go'shtli Lavash</h3>
+                <p>Mol go'shti, sabzavot va maxsus sous</p>
+                <div class="product-bottom">
+                    <strong>32 000 so'm</strong>
+                    <button onclick="addToCart('Mol goshtli Lavash',32000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="lavash" data-name="Tovuqli Lavash">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=500" alt="Tovuqli lavash">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🌯 LAVASH</span>
+                <h3>Tovuqli Lavash</h3>
+                <p>Tovuq go'shti va yangi sabzavotlar</p>
+                <div class="product-bottom">
+                    <strong>28 000 so'm</strong>
+                    <button onclick="addToCart('Tovuqli Lavash',28000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pizza" data-name="Margarita Pizza">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=500" alt="Pizza">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🍕 PIZZA</span>
+                <h3>Margarita Pizza</h3>
+                <p>Pishloq, pomidor va maxsus sous</p>
+                <div class="product-bottom">
+                    <strong>55 000 so'm</strong>
+                    <button onclick="addToCart('Margarita Pizza',55000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="hotdog" data-name="Hot Dog">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1612392062798-2dbaa9f6d6e4?w=500" alt="Hot dog">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🌭 HOT-DOG</span>
+                <h3>Maxi Hot Dog</h3>
+                <p>Sosiska, sous va yangi sabzavotlar</p>
+                <div class="product-bottom">
+                    <strong>20 000 so'm</strong>
+                    <button onclick="addToCart('Maxi Hot Dog',20000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="donar" data-name="Donar">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500" alt="Donar">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🥙 DONAR</span>
+                <h3>Donar</h3>
+                <p>Go'sht, kartoshka va maxsus sous</p>
+                <div class="product-bottom">
+                    <strong>38 000 so'm</strong>
+                    <button onclick="addToCart('Donar',38000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="fri" data-name="Kartoshka Fri">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500" alt="Fri">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🍟 FRI</span>
+                <h3>Kartoshka Fri</h3>
+                <p>Qarsildoq va mazali kartoshka</p>
+                <div class="product-bottom">
+                    <strong>15 000 so'm</strong>
+                    <button onclick="addToCart('Kartoshka Fri',15000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="drink" data-name="Coca Cola">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500" alt="Cola">
+            </div>
+            <div class="product-info">
+                <span class="food-category">🥤 ICHIMLIK</span>
+                <h3>Coca Cola</h3>
+                <p>Sovuq va mazali ichimlik</p>
+                <div class="product-bottom">
+                    <strong>12 000 so'm</strong>
+                    <button onclick="addToCart('Coca Cola',12000)">+</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <p id="noResults" class="no-results" hidden>Bu mahsulot topilmadi 😔</p>
+</section>
+
+<!-- AKSIYA -->
+<section class="promo" id="aksiya">
+    <div>
+        <span>🔥 MAXSUS TAKLIF</span>
+        <h2>YALA COMBO</h2>
+        <p>2 ta Burger + 2 ta Coca Cola + Kartoshka Fri</p>
+        <h3>99 000 so'm</h3>
+        <button onclick="addToCart('YALA COMBO',99000)">Aksiyani buyurtma qilish</button>
+    </div>
+    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600" alt="Combo">
+</section>
+
+<!-- XIZMATLAR -->
+<section class="services">
+    <h2>Nega aynan YALA?</h2>
+    <div class="service-list">
+        <div>🚀 <h3>Tez yetkazish</h3><p>Buyurtmangizni tez yetkazamiz</p></div>
+        <div>🥗 <h3>Yangi mahsulot</h3><p>Sifatli va yangi masalliqlar</p></div>
+        <div>💳 <h3>Qulay to'lov</h3><p>Buyurtma uchun qulay to'lov</p></div>
+        <div>❤️ <h3>Yaxshi xizmat</h3><p>Mijozlarimiz biz uchun muhim</p></div>
+    </div>
+</section>
+
+<!-- BIZ HAQIMIZDA -->
+<section class="about" id="about">
+    <h2>YALA FAST FOOD haqida</h2>
+    <p>
+        YALA — mazali taomlar, sifatli xizmat va yoqimli narxlar.
+        Bizning maqsadimiz har bir mijozga ajoyib ta'm ulashish.
+        O'zingiz yoqtirgan taomni tanlang va buyurtma bering!
+    </p>
+</section>
+
+<!-- ALOQA -->
+<section class="contact" id="contact">
+    <h2>Biz bilan bog'laning</h2>
+    <p>📞 Telefon: +998 90 123 45 67</p>
+    <p>📍 Manzil: Toshkent shahri</p>
+    <p>📷 Instagram: @yala_fastfood</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>YALA<span>.</span></h2>
+    <p>Eng mazali taomlar faqat bizda!</p>
+    <p>© 2026 YALA FAST FOOD. Barcha huquqlar himoyalangan.</p>
+</footer>
+
+<!-- SAVAT OYNASI -->
+<div class="modal" id="cartModal">
+    <div class="modal-content">
+        <button class="close" onclick="closeCart()">✕</button>
+        <h2>🛒 Sizning savatingiz</h2>
+        <div id="cartItems"></div>
+        <div class="total">
+            Jami: <strong id="totalPrice">0 so'm</strong>
+        </div>
+        <button class="checkout-btn" onclick="openCheckout()">Buyurtma berish</button>
+    </div>
+</div>
+
+<!-- BUYURTMA OYNASI -->
+<div class="modal" id="checkoutModal">
+    <div class="modal-content">
+        <button class="close" onclick="closeCheckout()">✕</button>
+        <h2>📦 Buyurtmani rasmiylashtirish</h2>
+        <form id="orderForm">
+            <label>Ismingiz</label>
+            <input type="text" id="customerName" placeholder="Ismingizni kiriting" required>
+
+            <label>Telefon raqamingiz</label>
+            <input type="tel" id="customerPhone" placeholder="+998 90 123 45 67" required>
+
+            <label>Yetkazib berish manzili</label>
+            <textarea id="customerAddress" placeholder="Manzilingizni yozing" required></textarea>
+
+            <label>To'lov turi</label>
+            <select id="payment">
+                <option>Naqd pul</option>
+                <option>Click</option>
+                <option>Payme</option>
+            </select>
+
+            <button type="submit" class="checkout-btn">Buyurtmani tasdiqlash</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
